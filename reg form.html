@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <style>
+    body { font-family: Arial; background: #eef2f3; padding: 20px; }
+    .container { max-width: 400px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px #ccc; }
+    input, select { width: 100%; padding: 8px; margin: 6px 0; }
+    .gender { display: flex; gap: 10px; }
+    button { width: 100%; padding: 10px; margin-top: 10px; border: none; border-radius: 4px; color: #fff; cursor: pointer; }
+    .login-buttons { display: flex; gap: 4%; }
+    .login-buttons button { width: 48%; }
+    .register { background: #4CAF50; }
+    .login { background: #2196F3; }
+    .logout { background: #f44336; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Register</h2>
+    <form onsubmit="return validateForm()">
+      <input type="text" id="fullname" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+      <div class="gender">
+        <label><input type="radio" name="gender" value="male"> Male</label>
+        <label><input type="radio" name="gender" value="female"> Female</label>
+        <label><input type="radio" name="gender" value="other"> Other</label>
+      </div>
+
+      <select id="country" required>
+        <option value="">Select Country</option>
+        <option>India</option><option>USA</option><option>UK</option><option>Other</option>
+      </select>
+
+      <button type="submit" class="register">Register</button>
+    </form>
+
+    <div class="login-buttons">
+      <button class="login" onclick="login()">Login</button>
+      <button class="logout" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <script>
+    function validateForm() {
+      const p = document.getElementById("password").value;
+      const cp = document.getElementById("confirmPassword").value;
+      if (p !== cp) return alert("Passwords do not match!"), false;
+      alert("Registration successful!");
+      return true;
+    }
+    const login = () => alert("Login functionality not implemented.");
+    const logout = () => alert("Logout successful!");
+  </script>
+</body>
+</html>
